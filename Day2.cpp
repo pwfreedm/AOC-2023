@@ -37,7 +37,7 @@ main()
     int id = 1;
 
     //matching against "# b" for the pattern for blue count, same with red/green. 
-    //Saving semicolons to differentiate trials
+    //matching semicolons to differentiate trials
     std::regex exp ("(\\d+ (b|r|g))|;");
     while (std::getline(file, line, '\n'))
     {
@@ -47,6 +47,12 @@ main()
         std::cout << std::format("Does begin equal end? {}\n", begin == end);
         while(begin != end)
         {
+            //basic idea:
+                //get a token from the reg iterators and make it a string
+                //split it so that the number and the color are separate
+                //parse color to figure out where to add number
+                //convert number to int and add it
+                
             std::string token = (*begin).str();
             std::cout << std::format("Token is: {}\n", token) << std::endl;
             if(token.length() <= 1)
